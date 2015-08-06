@@ -140,12 +140,24 @@ struct Sin: MathParserOperator {
     func evaluate(numbers: [Double]) -> Double {
         let number = numbers[0]
         
+        var result: Double
+        
         switch mathParserAngleUnits {
         case .Radians:
-            return sin(number)
+            result = sin(number)
         case .Degrees:
-            return sin(degreeToRadian(number))
+            result = sin(degreeToRadian(number))
         }
+        
+        if abs(abs(round(result)) - abs(result)) < mathParserPrecision {
+            result = round(result)
+        }
+        
+        if result == -0.0 {
+            return -result
+        }
+        
+        return result
     }
 }
 
@@ -158,12 +170,24 @@ struct Cos: MathParserOperator {
     func evaluate(numbers: [Double]) -> Double {
         let number = numbers[0]
         
+        var result: Double
+        
         switch mathParserAngleUnits {
         case .Radians:
-            return cos(number)
+            result =  cos(number)
         case .Degrees:
-            return cos(degreeToRadian(number))
+            result =  cos(degreeToRadian(number))
         }
+        
+        if abs(abs(round(result)) - abs(result)) < mathParserPrecision {
+            result = round(result)
+        }
+        
+        if result == -0.0 {
+            return -result
+        }
+        
+        return result
     }
 }
 
@@ -176,12 +200,24 @@ struct Tan: MathParserOperator {
     func evaluate(numbers: [Double]) -> Double {
         let number = numbers[0]
         
+        var result: Double
+        
         switch mathParserAngleUnits {
         case .Radians:
-            return tan(number)
+            result =  tan(number)
         case .Degrees:
-            return tan(degreeToRadian(number))
+            result =  tan(degreeToRadian(number))
         }
+        
+        if abs(abs(round(result)) - abs(result)) < mathParserPrecision {
+            result = round(result)
+        }
+        
+        if result == -0.0 {
+            return -result
+        }
+        
+        return result
     }
 }
 
@@ -194,12 +230,24 @@ struct Sinh: MathParserOperator {
     func evaluate(numbers: [Double]) -> Double {
         let number = numbers[0]
         
+        var result: Double
+        
         switch mathParserAngleUnits {
         case .Radians:
-            return sinh(number)
+            result =  sinh(number)
         case .Degrees:
-            return sinh(degreeToRadian(number))
+            result =  sinh(degreeToRadian(number))
         }
+        
+        if abs(abs(round(result)) - abs(result)) < mathParserPrecision {
+            result = round(result)
+        }
+        
+        if result == -0.0 {
+            return -result
+        }
+        
+        return result
     }
 }
 
@@ -212,12 +260,24 @@ struct Cosh: MathParserOperator {
     func evaluate(numbers: [Double]) -> Double {
         let number = numbers[0]
         
+        var result: Double
+        
         switch mathParserAngleUnits {
         case .Radians:
-            return cosh(number)
+            result = cosh(number)
         case .Degrees:
-            return cosh(degreeToRadian(number))
+            result = cosh(degreeToRadian(number))
         }
+        
+        if abs(abs(round(result)) - abs(result)) < mathParserPrecision {
+            result = round(result)
+        }
+        
+        if result == -0.0 {
+            return -result
+        }
+        
+        return result
     }
 }
 
@@ -230,12 +290,24 @@ struct Tanh: MathParserOperator {
     func evaluate(numbers: [Double]) -> Double {
         let number = numbers[0]
         
+        var result: Double
+        
         switch mathParserAngleUnits {
         case .Radians:
-            return tanh(number)
+            result = tanh(number)
         case .Degrees:
-            return tanh(degreeToRadian(number))
+            result = tanh(degreeToRadian(number))
         }
+        
+        if abs(abs(round(result)) - abs(result)) < mathParserPrecision {
+            result = round(result)
+        }
+        
+        if result == -0.0 {
+            return -result
+        }
+        
+        return result
     }
 }
 
@@ -246,14 +318,21 @@ struct Asin: MathParserOperator {
     var length = 1
     
     func evaluate(numbers: [Double]) -> Double {
-        let number = numbers[0]
-        
-        switch mathParserAngleUnits {
-        case .Radians:
-            return asin(number)
-        case .Degrees:
-            return asin(degreeToRadian(number))
+        var result = asin(numbers[0])
+
+        if mathParserAngleUnits == .Degrees {
+            result = radianToDegree(result)
         }
+        
+        if abs(abs(round(result)) - abs(result)) < mathParserPrecision {
+            result = round(result)
+        }
+        
+        if result == -0.0 {
+            return -result
+        }
+        
+        return result
     }
 }
 
@@ -264,14 +343,21 @@ struct Acos: MathParserOperator {
     var length = 1
     
     func evaluate(numbers: [Double]) -> Double {
-        let number = numbers[0]
+        var result = acos(numbers[0])
         
-        switch mathParserAngleUnits {
-        case .Radians:
-            return acos(number)
-        case .Degrees:
-            return acos(degreeToRadian(number))
+        if mathParserAngleUnits == .Degrees {
+            result = radianToDegree(result)
         }
+        
+        if abs(abs(round(result)) - abs(result)) < mathParserPrecision {
+            result = round(result)
+        }
+        
+        if result == -0.0 {
+            return -result
+        }
+        
+        return result
     }
 }
 
@@ -282,14 +368,21 @@ struct Atan: MathParserOperator {
     var length = 1
     
     func evaluate(numbers: [Double]) -> Double {
-        let number = numbers[0]
+        var result = atan(numbers[0])
         
-        switch mathParserAngleUnits {
-        case .Radians:
-            return atan(number)
-        case .Degrees:
-            return atan(degreeToRadian(number))
+        if mathParserAngleUnits == .Degrees {
+            result = radianToDegree(result)
         }
+        
+        if abs(abs(round(result)) - abs(result)) < mathParserPrecision {
+            result = round(result)
+        }
+        
+        if result == -0.0 {
+            return -result
+        }
+        
+        return result
     }
 }
 
@@ -300,14 +393,21 @@ struct Asinh: MathParserOperator {
     var length = 1
     
     func evaluate(numbers: [Double]) -> Double {
-        let number = numbers[0]
+        var result = asinh(numbers[0])
         
-        switch mathParserAngleUnits {
-        case .Radians:
-            return asinh(number)
-        case .Degrees:
-            return asinh(degreeToRadian(number))
+        if mathParserAngleUnits == .Degrees {
+            result = radianToDegree(result)
         }
+        
+        if abs(abs(round(result)) - abs(result)) < mathParserPrecision {
+            result = round(result)
+        }
+        
+        if result == -0.0 {
+            return -result
+        }
+        
+        return result
     }
 }
 
@@ -318,15 +418,21 @@ struct Acosh: MathParserOperator {
     var length = 1
     
     func evaluate(numbers: [Double]) -> Double {
-        let number = numbers[0]
+        var result = acosh(numbers[0])
         
-        switch mathParserAngleUnits {
-        case .Radians:
-            return acosh(number)
-        case .Degrees:
-            return acosh(degreeToRadian(number))
+        if mathParserAngleUnits == .Degrees {
+            result = radianToDegree(result)
         }
-    }
+        
+        if abs(abs(round(result)) - abs(result)) < mathParserPrecision {
+            result = round(result)
+        }
+        
+        if result == -0.0 {
+            return -result
+        }
+        
+        return result    }
 }
 
 struct Atanh: MathParserOperator {
@@ -336,14 +442,21 @@ struct Atanh: MathParserOperator {
     var length = 1
     
     func evaluate(numbers: [Double]) -> Double {
-        let number = numbers[0]
+        var result = atanh(numbers[0])
         
-        switch mathParserAngleUnits {
-        case .Radians:
-            return atanh(number)
-        case .Degrees:
-            return atanh(degreeToRadian(number))
+        if mathParserAngleUnits == .Degrees {
+            result = radianToDegree(result)
         }
+        
+        if abs(abs(round(result)) - abs(result)) < mathParserPrecision {
+            result = round(result)
+        }
+        
+        if result == -0.0 {
+            return -result
+        }
+        
+        return result
     }
 }
 
@@ -361,6 +474,7 @@ struct Negation: MathParserOperator {
 
 //MARK: Constants
 let mathParserBracketPriority = 10
+let mathParserPrecision = 1e-15
 var mathParserAngleUnits = MathParserAngleUnit.Degrees
 let mathParserOperators: [String: MathParserOperator] = ["+": Addition(), "-": Substraction(), "*": Multiplication(), "÷": Division(), //×
                                                      "^": Power(), "√": Root(), "log": Logarithm(), "!": Factorial(), "sin": Sin(),

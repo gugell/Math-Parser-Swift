@@ -258,28 +258,6 @@ func evaluateExpression(expression: String, angleUnit: MathParserAngleUnit) -> D
         }
         
         operations.removeAtIndex(maxPriorityIndex)
-        
-/*        switch operation.length {
-        case .One:
-            numbers[startIndex] = operation.evaluate(numbers[startIndex])
-            operations.removeAtIndex(maxPriorityIndex)
-        case .Two:
-            if startIndex + 1 >= numbers.count {
-                return nil
-            }
-            
-            let firstNumber = numbers[startIndex]
-            let secondNumber = numbers[startIndex + 1]
-            let result = operation.evaluate(firstNumber, rhs: secondNumber)
-            numbers[startIndex] = result
-            numbers.removeAtIndex(startIndex + 1)
-            
-            operations.removeAtIndex(maxPriorityIndex)
-            
-            for i in maxPriorityIndex..<operations.count {
-                operations[i].startIndex -= 1
-            }
-        }*/
     }
     
     return numbers[0]

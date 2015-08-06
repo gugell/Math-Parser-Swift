@@ -49,9 +49,9 @@ extension Dictionary {
 }
 
 func radianToDegree(radian: Double) -> Double {
-    return radian / 3.1415926535897932 * 180
+    return radian / M_PI * 180.0
 }
 
 func degreeToRadian(degree: Double) -> Double {
-    return degree / 180.0 * 3.1415926535897932
+    return degree / 180.0 * M_PI
 }

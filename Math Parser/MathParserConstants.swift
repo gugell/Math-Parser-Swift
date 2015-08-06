@@ -14,11 +14,11 @@ protocol MathParserConstant {
 
 
 struct PI: MathParserConstant {
-    var value = 3.1415926535897932
+    var value = M_PI
 }
 
 struct E: MathParserConstant {
-    var value = 2.7182818284590452
+    var value = M_E
 }
 
 let mathParserConstants: [String: MathParserConstant] = ["π": PI(), "e": E()]
