@@ -8,5 +8,5 @@
 
 import Foundation
 
-let result = evaluateExpression("asin(1)", MathParserAngleUnit.Radians)
+let result = evaluateExpression("2*5.2*2.2+2*3.3*2.2", MathParserAngleUnit.Radians)
 println("\(result)")

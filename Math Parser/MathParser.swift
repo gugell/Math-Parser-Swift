@@ -250,14 +250,16 @@ func evaluateExpression(expression: String, angleUnit: MathParserAngleUnit) -> D
         
         for i in 1..<operation.length {
             numbers.removeAtIndex(startIndex + 1)
-            
-            let index = maxPriorityIndex + i
-            if index < operations.count {
-                operations[index].startIndex -= 1
-            }
         }
         
         operations.removeAtIndex(maxPriorityIndex)
+        
+        let toRemove = operation.length - 1
+        if toRemove > 0 {
+            for i in maxPriorityIndex..<operations.count {
+                operations[i].startIndex -= toRemove
+            }
+        }
     }
     
     return numbers[0]
