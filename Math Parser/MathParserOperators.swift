@@ -119,7 +119,7 @@ struct Factorial: MathParserOperator {
         let number = numbers[0]
         
         if number > 170 || number < 1 || number != Double(Int(number)) {
-            return Double.NaN
+            return Double.infinity
         }
         
         var result: Double = 1
