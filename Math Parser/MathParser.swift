@@ -20,7 +20,17 @@ func evaluateExpression(expression: String, angleUnit: MathParserAngleUnit) -> D
     
     
     //MARK: Parsing to arrays
-    mainLoop: for character in expression {
+    mainLoop: for index in indices(expression) {
+        let character = expression[index]
+        
+        if (character == "-" && index == expression.startIndex) || (character == "-" && expression[index.predecessor()] == "(") {
+            var operation = Negation()
+            operation.priority += normalPriority
+            operation.startIndex = numbers.count
+            operations.append(operation)
+            continue
+        }
+        
         if lastWasNumber && character.isNumber {
             buffer.append(character)
         } else if !lastWasNumber && !character.isNumber {
@@ -79,12 +89,6 @@ func evaluateExpression(expression: String, angleUnit: MathParserAngleUnit) -> D
                 buffer = ""
                 
                 normalPriority -= mathParserBracketPriority
-                continue
-            case "-": //If "-" simbol appears after a char which doesn't represent a number, it is parsed as negative symbol
-                var operation = Negation()
-                operation.priority += normalPriority
-                operation.startIndex = numbers.count
-                operations.append(operation)
                 continue
             default:
                 break
@@ -145,7 +149,6 @@ func evaluateExpression(expression: String, angleUnit: MathParserAngleUnit) -> D
                 numbers.append(buffer.toDouble()!)
                 buffer = ""
             }
-            lastWasNumber = false
             
             switch character {
             case "(":
@@ -164,6 +167,8 @@ func evaluateExpression(expression: String, angleUnit: MathParserAngleUnit) -> D
             default:
                 break
             }
+            
+            lastWasNumber = false
             
             buffer.append(character)
             
@@ -262,5 +267,13 @@ func evaluateExpression(expression: String, angleUnit: MathParserAngleUnit) -> D
         }
     }
     
-    return numbers[0]
+    if numbers.count == 1 {
+        if numbers[0] == -0.0 {
+            return -numbers[0]
+        } else {
+            return numbers[0]
+        }
+    } else {
+        return nil
+    }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 let start = NSDate.timeIntervalSinceReferenceDate()
-let result = evaluateExpression("-0", MathParserAngleUnit.Radians)
+let result = evaluateExpression("", MathParserAngleUnit.Degrees)
 let end = NSDate.timeIntervalSinceReferenceDate()
 
 let difference = Double(end) - Double(start)

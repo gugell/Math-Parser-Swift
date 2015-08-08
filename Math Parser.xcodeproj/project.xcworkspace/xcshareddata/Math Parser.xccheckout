@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>7F834B399ACA3D12FF6BB3EF40AD696F9F6B19A6</key>
-		<string>https://github.com/DzinVision/Math-Parser.git</string>
+		<string>https://github.com/Sourcegasm/Math-Parser-Swift.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Math Parser.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/DzinVision/Math-Parser.git</string>
+	<string>https://github.com/Sourcegasm/Math-Parser-Swift.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
