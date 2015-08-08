@@ -43,7 +43,7 @@ struct Addition: MathParserOperator {
     }
 }
 
-struct Substraction: MathParserOperator {
+struct Subtraction: MathParserOperator {
     var type = MathParserOperationType.Infix
     var priority = 1
     var startIndex = -1
@@ -476,7 +476,7 @@ struct Negation: MathParserOperator {
 let mathParserBracketPriority = 10
 let mathParserPrecision = 1e-15
 var mathParserAngleUnits = MathParserAngleUnit.Degrees
-let mathParserOperators: [String: MathParserOperator] = ["+": Addition(), "-": Substraction(), "*": Multiplication(), "÷": Division(), //×
+let mathParserOperators: [String: MathParserOperator] = ["+": Addition(), "-": Subtraction(), "*": Multiplication(), "÷": Division(), //×
                                                      "^": Power(), "√": Root(), "log": Logarithm(), "!": Factorial(), "sin": Sin(),
                                                      "cos": Cos(), "tan": Tan(), "asin": Asin(), "Acos": Acos(), "atan": Atan(),
                                                      "sinh": Sinh(), "cosh": Cosh(), "tanh": Tanh(), "asinh": Asinh(), "acosh": Acosh(), "atanh": Atanh()]
