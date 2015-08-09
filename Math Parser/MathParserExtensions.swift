@@ -10,11 +10,7 @@ import Foundation
 
 extension String {
     func toDouble() -> Double? {
-        let number = NSNumberFormatter().numberFromString(self)
-        if number == nil {
-            return nil
-        }
-        return Double(number!)
+        return NSString(string: self).doubleValue
     }
 }
 

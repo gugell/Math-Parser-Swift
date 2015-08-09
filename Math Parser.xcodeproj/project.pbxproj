@@ -12,6 +12,7 @@
 		9942C4AD1B727D9000125F75 /* MathParserExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9942C4AC1B727D9000125F75 /* MathParserExtensions.swift */; };
 		9942C4AF1B727DB300125F75 /* MathParserConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9942C4AE1B727DB300125F75 /* MathParserConstants.swift */; };
 		9983D5F31B71396200219C38 /* MathParserOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9983D5F21B71396200219C38 /* MathParserOperators.swift */; };
+		99FA64271B778931009361CB /* MathParserFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA64261B778931009361CB /* MathParserFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,7 @@
 		9942C4AC1B727D9000125F75 /* MathParserExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathParserExtensions.swift; sourceTree = "<group>"; };
 		9942C4AE1B727DB300125F75 /* MathParserConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathParserConstants.swift; sourceTree = "<group>"; };
 		9983D5F21B71396200219C38 /* MathParserOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathParserOperators.swift; sourceTree = "<group>"; };
+		99FA64261B778931009361CB /* MathParserFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathParserFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				9942C4AA1B72571300125F75 /* MathParser.swift */,
 				9983D5F21B71396200219C38 /* MathParserOperators.swift */,
 				9942C4AE1B727DB300125F75 /* MathParserConstants.swift */,
+				99FA64261B778931009361CB /* MathParserFormatter.swift */,
 				9942C4AC1B727D9000125F75 /* MathParserExtensions.swift */,
 			);
 			path = "Math Parser";
@@ -135,6 +138,7 @@
 				991450501B7138F8000BC725 /* main.swift in Sources */,
 				9983D5F31B71396200219C38 /* MathParserOperators.swift in Sources */,
 				9942C4AB1B72571300125F75 /* MathParser.swift in Sources */,
+				99FA64271B778931009361CB /* MathParserFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
