@@ -8,9 +8,7 @@
 
 import Foundation
 
-let expression = "1234769.1234*1238746-1234(-12)^2"
-
-println(mathParserDecimalSeparator)
+let expression = "3123234*91243+7^3+32!÷16-asinh(cos(√(2,π+e)))"
 
 let start = NSDate.timeIntervalSinceReferenceDate()
 let result = evaluateExpression(expression, MathParserAngleUnit.Degrees)

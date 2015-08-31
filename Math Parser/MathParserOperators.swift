@@ -460,6 +460,17 @@ struct Atanh: MathParserOperator {
     }
 }
 
+struct Percentege: MathParserOperator {
+    var type = MathParserOperationType.Suffix
+    var priority = 6
+    var startIndex = -1
+    var length = 1
+    
+    func evaluate(numbers: [Double]) -> Double {
+        return numbers[0] / 100.0
+    }
+}
+
 struct Negation: MathParserOperator {
     var type = MathParserOperationType.Prefix
     var priority = 6
@@ -479,4 +490,4 @@ var mathParserAngleUnits = MathParserAngleUnit.Degrees
 let mathParserOperators: [String: MathParserOperator] = ["+": Addition(), "-": Subtraction(), "*": Multiplication(), "÷": Division(), //×
                                                      "^": Power(), "√": Root(), "log": Logarithm(), "!": Factorial(), "sin": Sin(),
                                                      "cos": Cos(), "tan": Tan(), "asin": Asin(), "Acos": Acos(), "atan": Atan(),
-                                                     "sinh": Sinh(), "cosh": Cosh(), "tanh": Tanh(), "asinh": Asinh(), "acosh": Acosh(), "atanh": Atanh()]
+                                                     "sinh": Sinh(), "cosh": Cosh(), "tanh": Tanh(), "asinh": Asinh(), "acosh": Acosh(), "atanh": Atanh(), "%": Percentege()]

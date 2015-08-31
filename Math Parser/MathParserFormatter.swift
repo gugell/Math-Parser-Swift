@@ -50,10 +50,12 @@ func mathParserFormatNumber(number: String) -> String {
 }
 
 func mathParserFormatExpression(expression: String) -> String {
+    var mutableExpression = expression.stringByReplacingOccurrencesOfString(",", withString: "; ", options: NSStringCompareOptions.LiteralSearch, range: nil)
+    
     var result = ""
     var currentNumber = ""
     
-    for character in expression {
+    for character in mutableExpression {
         if character.isNumber {
             currentNumber.append(character)
         } else if !currentNumber.isEmpty {
