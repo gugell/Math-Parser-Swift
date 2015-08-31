@@ -460,7 +460,7 @@ struct Atanh: MathParserOperator {
     }
 }
 
-struct Percentege: MathParserOperator {
+struct Percentage: MathParserOperator {
     var type = MathParserOperationType.Suffix
     var priority = 6
     var startIndex = -1
@@ -487,7 +487,7 @@ struct Negation: MathParserOperator {
 let mathParserBracketPriority = 10
 let mathParserPrecision = 1e-15
 var mathParserAngleUnits = MathParserAngleUnit.Degrees
-let mathParserOperators: [String: MathParserOperator] = ["+": Addition(), "-": Subtraction(), "*": Multiplication(), "÷": Division(), //×
+let mathParserOperators: [String: MathParserOperator] = ["+": Addition(), "-": Subtraction(), "×": Multiplication(), "÷": Division(),
                                                      "^": Power(), "√": Root(), "log": Logarithm(), "!": Factorial(), "sin": Sin(),
                                                      "cos": Cos(), "tan": Tan(), "asin": Asin(), "Acos": Acos(), "atan": Atan(),
-                                                     "sinh": Sinh(), "cosh": Cosh(), "tanh": Tanh(), "asinh": Asinh(), "acosh": Acosh(), "atanh": Atanh(), "%": Percentege()]
+                                                     "sinh": Sinh(), "cosh": Cosh(), "tanh": Tanh(), "asinh": Asinh(), "acosh": Acosh(), "atanh": Atanh(), "%": Percentage()]
