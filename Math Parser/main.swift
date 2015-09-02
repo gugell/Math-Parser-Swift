@@ -8,7 +8,7 @@
 
 import Foundation
 
-let expression = "3123234*91243+7^3+32!÷16-asinh(cos(√(2,π+e)))"
+let expression = "cos(-0)"//"3123234×91243+7^3+32!÷16-asinh(cos(√(2,π+e)))"
 
 let start = NSDate.timeIntervalSinceReferenceDate()
 let result = evaluateExpression(expression, MathParserAngleUnit.Degrees)
