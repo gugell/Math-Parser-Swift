@@ -76,6 +76,17 @@ struct Division: MathParserOperator {
     }
 }
 
+struct Negation: MathParserOperator {
+    var type = MathParserOperationType.Prefix
+    var priority = 2
+    var startIndex = -1
+    var length = 1
+    
+    func evaluate(numbers: [Double]) -> Double {
+        return -numbers[0]
+    }
+}
+
 struct Power: MathParserOperator {
     var type = MathParserOperationType.Infix
     var priority = 3
@@ -89,7 +100,7 @@ struct Power: MathParserOperator {
 
 struct Root: MathParserOperator {
     var type = MathParserOperationType.Prefix
-    var priority = 3
+    var priority = 4
     var startIndex = -1
     var length = 2
     
@@ -100,11 +111,14 @@ struct Root: MathParserOperator {
 
 struct Logarithm: MathParserOperator {
     var type = MathParserOperationType.Prefix
-    var priority = 3
+    var priority = 4
     var startIndex = -1
     var length = 2
     
     func evaluate(numbers: [Double]) -> Double {
+        if numbers[0] <= 0 {
+            return Double.infinity
+        }
         return log10(numbers[1]) / log10(numbers[0])
     }
 }
@@ -131,9 +145,20 @@ struct Factorial: MathParserOperator {
     }
 }
 
+struct Percentage: MathParserOperator {
+    var type = MathParserOperationType.Suffix
+    var priority = 4
+    var startIndex = -1
+    var length = 1
+    
+    func evaluate(numbers: [Double]) -> Double {
+        return numbers[0] / 100.0
+    }
+}
+
 struct Sin: MathParserOperator {
     var type = MathParserOperationType.Prefix
-    var priority = 6
+    var priority = 5
     var startIndex = -1
     var length = 1
     
@@ -163,7 +188,7 @@ struct Sin: MathParserOperator {
 
 struct Cos: MathParserOperator {
     var type = MathParserOperationType.Prefix
-    var priority = 6
+    var priority = 5
     var startIndex = -1
     var length = 1
     
@@ -193,7 +218,7 @@ struct Cos: MathParserOperator {
 
 struct Tan: MathParserOperator {
     var type = MathParserOperationType.Prefix
-    var priority = 6
+    var priority = 5
     var startIndex = -1
     var length = 1
     
@@ -223,7 +248,7 @@ struct Tan: MathParserOperator {
 
 struct Sinh: MathParserOperator {
     var type = MathParserOperationType.Prefix
-    var priority = 6
+    var priority = 5
     var startIndex = -1
     var length = 1
     
@@ -253,7 +278,7 @@ struct Sinh: MathParserOperator {
 
 struct Cosh: MathParserOperator {
     var type = MathParserOperationType.Prefix
-    var priority = 6
+    var priority = 5
     var startIndex = -1
     var length = 1
     
@@ -283,7 +308,7 @@ struct Cosh: MathParserOperator {
 
 struct Tanh: MathParserOperator {
     var type = MathParserOperationType.Prefix
-    var priority = 6
+    var priority = 5
     var startIndex = -1
     var length = 1
     
@@ -313,7 +338,7 @@ struct Tanh: MathParserOperator {
 
 struct Asin: MathParserOperator {
     var type = MathParserOperationType.Prefix
-    var priority = 6
+    var priority = 5
     var startIndex = -1
     var length = 1
     
@@ -338,7 +363,7 @@ struct Asin: MathParserOperator {
 
 struct Acos: MathParserOperator {
     var type = MathParserOperationType.Prefix
-    var priority = 6
+    var priority = 5
     var startIndex = -1
     var length = 1
     
@@ -363,7 +388,7 @@ struct Acos: MathParserOperator {
 
 struct Atan: MathParserOperator {
     var type = MathParserOperationType.Prefix
-    var priority = 6
+    var priority = 5
     var startIndex = -1
     var length = 1
     
@@ -388,7 +413,7 @@ struct Atan: MathParserOperator {
 
 struct Asinh: MathParserOperator {
     var type = MathParserOperationType.Prefix
-    var priority = 6
+    var priority = 5
     var startIndex = -1
     var length = 1
     
@@ -413,7 +438,7 @@ struct Asinh: MathParserOperator {
 
 struct Acosh: MathParserOperator {
     var type = MathParserOperationType.Prefix
-    var priority = 6
+    var priority = 5
     var startIndex = -1
     var length = 1
     
@@ -437,7 +462,7 @@ struct Acosh: MathParserOperator {
 
 struct Atanh: MathParserOperator {
     var type = MathParserOperationType.Prefix
-    var priority = 6
+    var priority = 5
     var startIndex = -1
     var length = 1
     
@@ -457,28 +482,6 @@ struct Atanh: MathParserOperator {
         }
         
         return result
-    }
-}
-
-struct Percentage: MathParserOperator {
-    var type = MathParserOperationType.Suffix
-    var priority = 5
-    var startIndex = -1
-    var length = 1
-    
-    func evaluate(numbers: [Double]) -> Double {
-        return numbers[0] / 100.0
-    }
-}
-
-struct Negation: MathParserOperator {
-    var type = MathParserOperationType.Prefix
-    var priority = 5
-    var startIndex = -1
-    var length = 1
-    
-    func evaluate(numbers: [Double]) -> Double {
-        return -numbers[0]
     }
 }
 
